@@ -10,54 +10,48 @@
 <body>
 
 <div class="container mt-3">
+  <!-- dd({{$cates}}); -->
+ <!-- <a href="/create">create</a> -->
+ <a href="{{route('category.create')}}" class="btn btn-info">create</a>
   <h2>Categories</h2>
-            
-  <table class="table table-dark table-hover">
-    <thead>
-      <tr>
-        <th>Phones</th>
-        <th>watch</th>
-        <th>sort_wear</th>
-        <th>other</th>
-      </tr>
-    </thead>
-    <tbody>
-    @foreach($categes as $cate)
-      <tr>
-        <td>{{$cate[0]}}</td>
-        <td>{{$cate[1]}}</td>
-        <td>{{$cate[2]}}</td>
-        <td>{{$cate[3]}}</td>
-             </tr> 
-      @endforeach   
-    </tbody>
-  </table>
-</div>
-
-<div class="container mt-3">
-  <h2>Products</h2>
             
   <table class="table table-dark table-hover">
     <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Price</th>
-        <th>Details</th>
+        <th>action</th>
+        <th>action</th>
+        <th>action</th>
+        <!-- <th>sort_wear</th>
+        <th>other</th> -->
       </tr>
     </thead>
     <tbody>
-    @foreach($products as $product)
+    @foreach($cates as $cate)
       <tr>
-        <td>{{$product['id']}}</td>
-        <td>{{$product['name']}}</td>
-        <td>{{$product['price']}}</td>
-        <td><a href="/product_dtails/{{$product['id']}}" class="btn btn-secondary" >Details</a></td>
-      </tr> 
+        <td>{{$cate['id']}}</td>
+        <td>{{$cate['name']}}</td>
+        <!-- <td>
+       <from style="display:inline;" method="POST" action="/delete/{{$cate['id']}}">
+       @method('DELETE')
+         @csrf 
+     <button class="btn btn-secondary" type="submit">Delete</button>
+      </form>
+  </td>  -->
+  <!-- <td></td> -->
+<!-- @method('Delete');-->
+<td><a href="/detais_cate/{{$cate['id']}}" class="btn btn-info mt-3">Show</a></td>
+   <td>  <a href="/delete_cate/{{$cate['id']}}" class="btn btn-info">Delete</a></td> 
+     <!-- <td>  <a href="/delete/{{$cate['id']}}" class="btn btn-secondary">Update</a></td>  -->
+     <td>  <a href="/cate/{{$cate['id']}}/edit" class="btn btn-info">Update</a></td>
+        </tr> 
       @endforeach   
     </tbody>
   </table>
 </div>
+
+
 
 </body>
 </html>
