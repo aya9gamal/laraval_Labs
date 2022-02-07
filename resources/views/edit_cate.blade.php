@@ -14,8 +14,8 @@
     <form method="POST" action="/edit/{{$category['id']}}">
     @csrf
     <input type="hidden" name="id" value="{{$category['id']}}">
-        Name: <input type="text" name="name" value="{{$category['name']}}">
-        <button>update</button>
+        Name: <input type="text" name="name" value="{{$category['name']}}" class="form-control">
+        <button class="btn btn-info mt-3">update</button>
     </form>
 </div>
 

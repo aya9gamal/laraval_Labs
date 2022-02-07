@@ -18,10 +18,11 @@ class CreateCategoriesTable extends Migration
             $table->char('name', 100);
             $table->timestamps();
             // protected $table = '';
+           
         });
 
     }
-
+    
     /**
      * Reverse the migrations.
      *

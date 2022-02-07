@@ -15,8 +15,18 @@
     <form method="POST" action="{{route('category.save')}}">
     @csrf
     <!-- @method('PUT'); -->
-        Name: <input type="text" name="name">
-        <button>Save</button>
+        Name: <input type="text" name="name" class="form-control">
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+        <button type="submit" class="btn btn-info mt-3">Save</button>
+        <!-- <input type="submit" value="save"/> -->
     </form>
 </div>
 
