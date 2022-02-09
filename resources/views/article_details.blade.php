@@ -20,9 +20,7 @@
       <p>  details: {{$data['details']}}</p>   
       <p>  slug: {{$data['slug']}}</p>   
       <p>  category_id: {{$data['cate_id']}}
-        <ul>
-          <li>category name :{{$category_data['name']}}</li>
-        </ul>
+        
       </p>    
       <p>  is_used: {{$data['is_used']}}</p>          
     </blockquote>

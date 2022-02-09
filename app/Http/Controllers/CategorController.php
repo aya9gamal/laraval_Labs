@@ -9,7 +9,8 @@ class CategorController extends Controller
 {
     //
     public function index(){
-        $cates=Category::all();
+        // $cates=Category::all();
+        $cates=Category::paginate(5);
        
         return view('home',['cates'=>$cates]);
     }
@@ -23,7 +24,7 @@ class CategorController extends Controller
        $category=new Category;
       $category->name=$request->name;      
       $category->save();
-      return redirect('/');
+      return redirect('/cate');
     }
 public function delete($id){
     $category = Category::where('id','=', $id)->get(); 
@@ -36,7 +37,7 @@ public function delete($id){
     //     $category->delete();
     // }
 
-    return redirect('/');
+    return redirect('/cate');
 }
 public function edit($id){
     // dd($id);
@@ -50,7 +51,7 @@ public function update(StoreCategoryRequest $request){
 $category=Category::find($request->id);
 $category->name=$request->name;
 $category->save();
-return redirect('/');
+return redirect('/cate');
 }
 public function show($id){
     $category = Category::findOrFail($id);

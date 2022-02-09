@@ -36,4 +36,5 @@ class HomeController extends Controller
     //,['product',$products[$id]]
     return  view ('product_details',['data' => $this->products[$id-1]]);
    }
+   
 }

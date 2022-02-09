@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> First Example</title>
+  <title> category </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    svg{
+      width:50px!important;
+   
+    }
+    p{
+     display: none;
+    }
+    div{
+      margin-top:10px;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container mt-3">
   <!-- dd({{$cates}}); -->
  <!-- <a href="/create">create</a> -->
-
+<h1>Hello {{auth()->user()->name}}</h1>
  <a href="{{route('category.create')}}" class="btn btn-info">create</a>
   <h2>Categories</h2>
             
@@ -41,6 +53,7 @@
       @endforeach   
     </tbody>
   </table>
+  {{ $cates->links() }}
 </div>
 
  <!-- <td>

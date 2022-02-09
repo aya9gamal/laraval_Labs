@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> First Example</title>
+  <title> article </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    svg{
+      width:50px!important;
+    }
+   p{
+     display: none;
+    }
+    div{
+      margin-top:10px;
+    }
+  </style>
 </head>
 <body>
 <div class="container mt-3"> 
@@ -20,7 +31,8 @@
         <th>Name</th>
         <th>details</th>
         <th>slug</th>
-        <th>category_id</th>
+        <!-- <th>category_id</th> -->
+        <th>category_name</th>
         <th>is_used</th>
         <th>action</th>
         <th>action</th>
@@ -36,7 +48,8 @@
         <td>{{$article['name']}}</td>  
         <td>{{$article['details']}}</td>     
         <td>{{$article['slug']}}</td>  
-        <td>{{$article['cate_id']}}</td>   
+        <!-- <td>{{$article['cate_id']}}</td>   -->
+        <td>{{$article->Category->name}}</td>  
         <td>{{$article['is_used']}}</td>  
         <td><a href="/detais_artic/{{$article['id']}}" class="btn btn-info">Show</a></td>   
    <td> <a href="/delete_article/{{$article['id']}}" class="btn btn-info">Delete</a></td>     
@@ -45,6 +58,7 @@
       @endforeach   
     </tbody>
   </table>
+  {{ $articles->links() }}
 </div>
 </body>
 </html>

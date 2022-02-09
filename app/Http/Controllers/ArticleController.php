@@ -9,21 +9,16 @@ class ArticleController extends Controller
 {
     //
     public function index(){
-          $article=Article::all();
+        //   $article=Article::all();       
+        $article=Article::paginate(5);  
+       
         return view('article',['articles'=> $article]);
     }
     public function create(){
         $cate_ids=Category::all();
-        // ,['cate_ids'=>$cate_ids]
-        return view('create_article',['cate_ids'=>$cate_ids]);
+      return view('create_article',['cate_ids'=>$cate_ids]);
     }
     public function save(StoreArticleRequest $request){
-        // $request->validate([
-        //     'name' => 'required|unique:posts|max:255',
-        //     'details' => 'required',
-        //     'slug' => 'required',
-        //     'cate_id'=>'required',
-        // ]);
         $article=new Article;
         $article->name=$request->name;
         $article->details=$request->details;
@@ -56,8 +51,10 @@ class ArticleController extends Controller
     public function show($id){
         
         $article = Article::findOrFail($id);
-        $category_data=Category::findOrFail($article['cate_id']);       
-        return  view ('article_details',['data' =>$article],['category_data' =>$category_data]);
+        // $category_data=Category::findOrFail($article['cate_id']);   
+    //  return  view ('article_details',['data' =>$article],['category_data' =>$category_data]);
+    return  view ('article_details',['data' =>$article]);
     }
+    
    
 }
